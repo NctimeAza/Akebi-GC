@@ -28,13 +28,13 @@ namespace cheat::feature
     Debug::Debug() : Feature()
     {
         events::GameUpdateEvent += FUNCTION_HANDLER(OnGameUpdate);
-        HookManager::install(app::MoleMole_ActorAbilityPlugin_OnEvent, ActorAbilityPlugin_OnEvent_Hook);
-        // HookManager::install(app::MoleMole_LuaShellManager_ReportLuaShellResult, LuaShellManager_ReportLuaShellResult_Hook);
-        // HookManager::install(app::MoleMole_LuaShellManager_DoString, LuaShellManager_DoString_Hook);
-        // HookManager::install(app::LuaEnv_DoString, LuaEnv_DoString_Hook);
-        // HookManager::install(app::Lua_xlua_pushasciistring, Lua_xlua_pushasciistring_Hook);
+        //HookManager::install(app::MoleMole_ActorAbilityPlugin_OnEvent, ActorAbilityPlugin_OnEvent_Hook);
+        //HookManager::install(app::MoleMole_LuaShellManager_ReportLuaShellResult, LuaShellManager_ReportLuaShellResult_Hook);
+       // HookManager::install(app::MoleMole_LuaShellManager_DoString, LuaShellManager_DoString_Hook);
+        //HookManager::install(app::LuaEnv_DoString, LuaEnv_DoString_Hook);
+        //HookManager::install(app::Lua_xlua_pushasciistring, Lua_xlua_pushasciistring_Hook);
 
-        // HookManager::install(app::GameLogin_SendInfo_2, SendInfo_Hook);
+        //HookManager::install(app::GameLogin_SendInfo_2, SendInfo_Hook);
         // LOG_DEBUG("Hooked GameLogin::SendGameInfo. Origin at 0x%p", HookManager::getOrigin(SendInfo_Hook));
     }
 
@@ -1242,12 +1242,15 @@ namespace cheat::feature
             DrawPositionInfo();
         }
 
-        //if (ImGui::CollapsingHeader("Filter item picker"))
-        //    DrawFilterItemPicker();
+        if (ImGui::CollapsingHeader("Filter item picker"))
+            DrawFilterItemPicker();
 
-        //if (ImGui::CollapsingHeader("Chest plugin", ImGuiTreeNodeFlags_None))
-        //	DrawChestPlugin();
+        if (ImGui::CollapsingHeader("Chest plugin", ImGuiTreeNodeFlags_None))
+        	DrawChestPlugin();
 
+        if (ImGui::CollapsingHeader("ScenePropManager", ImGuiTreeNodeFlags_None))
+            DrawScenePropManager();
+        
         //if (ImGui::CollapsingHeader("Interaction manager", ImGuiTreeNodeFlags_None))
         //	DrawInteractionManagerInfo();
 
