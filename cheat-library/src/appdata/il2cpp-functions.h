@@ -13,6 +13,11 @@ DO_APP_FUNC(0x0353E4A0, void, MoleMole_InLevelMapPageContext_OnMapClicked, (InLe
 DO_APP_FUNC(0x00B6AD00, bool, MoleMole_MapModule_IsAreaUnlock, (MoleMole_MapModule* __this, uint32_t sceneID, uint32_t areaID, MethodInfo* method)); //
 
 
+// Game Asset
+DO_APP_FUNC(0x0469CE40, uint64_t, CommonMiscs_GetAssetPathHash_1, (String* path, String* extention, MethodInfo* method));   //
+DO_APP_FUNC(0x0688D810, uint64_t, Application_MiHoYoGetAssetPathHash, (String* path, int32_t length, MethodInfo* method));  //
+
+
 // should be 'op_Implicit' not 'get_value'
 DO_APP_FUNC(0x02355C90, uint16_t, MoleMole_SimpleSafeUInt16_get_Value, (SimpleSafeUInt16 v, MethodInfo* method)); //
 DO_APP_FUNC(0x02B0AE10, uint32_t, MoleMole_SimpleSafeUInt32_get_Value, (SimpleSafeUInt32 v, MethodInfo* method)); //
@@ -57,6 +62,7 @@ DO_APP_FUNC(0x02DB3FD0, void, MoleMole_ActorAbilityPlugin_AddDynamicFloatWithRan
 // Rapid fire
 DO_APP_FUNC(0x017B0EE0, void, MoleMole_LCBaseCombat_DoHitEntity, (LCBaseCombat* __this, uint32_t targetID, AttackResult* attackResult, bool ignoreCheckCanBeHitInMP, MethodInfo* method)); //
 DO_APP_FUNC(0x019DD130, void, MoleMole_Formula_CalcAttackResult, (CombatProperty* attackCombatProperty, CombatProperty* defenseCombatProperty, AttackResult* attackResult, BaseEntity* attackerEntity, BaseEntity* attackeeEntity, MethodInfo* method)); //
+DO_APP_FUNC(0x0106C360, void, MoleMole_VCAnimatorEvent_HandleProcessItem, (MoleMole_VCAnimatorEvent* __this, MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_AnimatorEventPatternProcessItem* processItem, AnimatorStateInfo processStateInfo, MoleMole_VCAnimatorEvent_MoleMole_VCAnimatorEvent_TriggerMode__Enum mode, MethodInfo* method));
 
 
 // World cheats
@@ -99,6 +105,9 @@ DO_APP_FUNC(0x00E5EB70, void, MoleMole_LuaShellManager_DoString, (void* __this, 
 DO_APP_FUNC(0x063D96A0, void*, LuaEnv_DoString, (void* __this, Byte__Array* chunk, String* chunkName, void* env, MethodInfo* method)); //
 DO_APP_FUNC(0x00E5E040, void, MoleMole_LuaShellManager_ReportLuaShellResult, (void* __this, String* type, String* value, MethodInfo* method)); // Anticheat info //
 
+//Backdoored lua packets
+//DO_APP_FUNC(0x0144EFB0, void, MoleMole_PlayerModule_OnWindSeedClientNotify, (MoleMole_PlayerModule* __this, Proto_WindSeedClientNotify* notify, MethodInfo* method));
+//DO_APP_FUNC(0x0145BE90, void, MoleMole_PlayerModule_OnReciveLuaShell, (MoleMole_PlayerModule* __this, Proto_PlayerLuaShellNotify* playerLuaShellNotify, MethodInfo* method));
 
 // Debug hooks
 DO_APP_FUNC(0x02C2E230, AttackResult_1*, MoleMole_AttackResult_FillProtoAttackResult, (AttackResult* __this, uint32_t attackerID, uint32_t defenseId, AttackResult_1* protoAttackResult, MethodInfo* method)); //
@@ -155,6 +164,10 @@ DO_APP_FUNC(0x012BBAF0, void, CookingQtePageContext_CloseItemGotPanel, (CookingQ
 DO_APP_FUNC(0x02A37230, Button_1*, ProfilePage, (MonoInLevelPlayerProfilePage* __this, MethodInfo* method)); // MonoInLevelPlayerProfilePage_get_logoutButton //
 DO_APP_FUNC(0x01B0F0F0, void, ProfileEditPage, (MonoFriendInformationDialog* __this, Sprite* value, MethodInfo* method)); // MonoFriendInformationDialog_set_icon // 
 
+// Custom Weather | RyujinZX#6666
+DO_APP_FUNC(0x027776F0, bool, EnviroSky_ChangeWeather, (void* /*app::EnviroSky*/ __this, String* weatherPath, float transTime, float ratio, MethodInfo* method));
+DO_APP_FUNC(0x014ECCE0, void* /*app::EnviroSky*/, EnviroSky_get_Instance, (MethodInfo* method));
+
 // Free Camera
 DO_APP_FUNC(0x067F35E0, float, Camera_get_fieldOfView, (Camera* __this, MethodInfo* method));
 DO_APP_FUNC(0x067F3A40, void, Camera_set_fieldOfView, (Camera* __this, float value, MethodInfo* method));
@@ -200,6 +213,7 @@ DO_APP_FUNC(0x067C60C0, void, Transform_set_rotation, (Transform* __this, Quater
 DO_APP_FUNC(0x068469A0, float, Mathf_Lerp, (float a, float b, float t, MethodInfo* method));  //
 DO_APP_FUNC(0x0685A4F0, float, Input_GetAxis, (String* axisName, MethodInfo* method));  //
 DO_APP_FUNC(0x067C09F0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method)); //
+//DO_APP_FUNC(0x067CE330, void, Text_set_text, (Text* __this, String* value, MethodInfo* method)); //
 
 
 // Utility
@@ -255,6 +269,7 @@ DO_APP_FUNC(0x03186D90, Vector3, MoleMole_BaseEntity_GetRight, (BaseEntity* __th
 DO_APP_FUNC(0x03184F20, Vector3, MoleMole_BaseEntity_GetUp, (BaseEntity* __this, MethodInfo* method)); //
 DO_APP_FUNC(0x031A4230, bool, MoleMole_BaseEntity_IsActive, (BaseEntity* __this, MethodInfo* method)); //
 DO_APP_FUNC(0x031AF010, Rigidbody*, MoleMole_BaseEntity_GetRigidbody, (BaseEntity* __this, MethodInfo* method)); //
+DO_APP_FUNC(0x0318CC70, Animator*, MoleMole_BaseEntity_get_animator, (BaseEntity* __this, MethodInfo* method));
 
 // type should be 'MoleMole_VCCharacterCombat' not 'MoleMole_VCBaseMove'
 // function name should be 'GetVisualCombatComponent' not 'GetMoveComponent'
@@ -318,6 +333,9 @@ DO_APP_FUNC(0x067EDF10, void, Cursor_set_visible, (bool value, MethodInfo* metho
 DO_APP_FUNC(0x067EDF00, void, Cursor_set_lockState, (CursorLockMode__Enum value, MethodInfo* method)); //
 DO_APP_FUNC(0x067EDEF0, bool, Cursor_get_visible, (MethodInfo* method)); //
 
+DO_APP_FUNC(0x067288F0, RigidbodyConstraints__Enum, Rigidbody_get_constraints, (Rigidbody* __this, MethodInfo* method));
+DO_APP_FUNC(0x06728AD0, void, Rigidbody_set_constraints, (Rigidbody* __this, RigidbodyConstraints__Enum value, MethodInfo* method));
+DO_APP_FUNC(0x06728AC0, void, Rigidbody_set_collisionDetectionMode, (Rigidbody* __this, CollisionDetectionMode__Enum value, MethodInfo* method));
 DO_APP_FUNC(0x06728AE0, void, Rigidbody_set_detectCollisions, (Rigidbody* __this, bool value, MethodInfo* method)); //
 DO_APP_FUNC(0x06728B20, void, Rigidbody_set_isKinematic, (Rigidbody* __this, bool value, MethodInfo* method)); //
 DO_APP_FUNC(0x06728A20, Vector3, Rigidbody_get_velocity, (Rigidbody* __this, MethodInfo* method)); //
@@ -334,6 +352,12 @@ DO_APP_FUNC(0x067F36F0, int32_t, Camera_get_pixelHeight, (Camera* __this, Method
 
 DO_APP_FUNC(0x067A8AE0, int32_t, Screen_get_width, (MethodInfo* method)); //
 DO_APP_FUNC(0x067A8A70, int32_t, Screen_get_height, (MethodInfo* method)); //
+
+DO_APP_FUNC(0x0682CA10, void, Animator_Play, (Animator* __this, String* stateName, int32_t layer, float normalizedTime, MethodInfo* method));
+DO_APP_FUNC(0x0682CB90, void, Animator_Rebind, (Animator* __this, MethodInfo* method));
+DO_APP_FUNC(0x0682D100, float, Animator_get_speed, (Animator* __this, MethodInfo* method));
+
+DO_APP_FUNC(0x0682D230, void, Animator_set_speed, (Animator* __this, float value, MethodInfo* method));
 
 DO_APP_FUNC(0x068B8020, bool, Behaviour_get_isActiveAndEnabled, (Behaviour* __this, MethodInfo* method)); //
 

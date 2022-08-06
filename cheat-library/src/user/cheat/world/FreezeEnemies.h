@@ -5,18 +5,15 @@
 namespace cheat::feature 
 {
 
-	class AutoDestroy : public Feature
+	class FreezeEnemies : public Feature
     {
 	public:
 		config::Field<config::Toggle<Hotkey>> f_Enabled;
-		config::Field<config::Toggle<Hotkey>> f_DestroyOres;
-		config::Field<config::Toggle<Hotkey>> f_DestroyShields;
-		config::Field<config::Toggle<Hotkey>> f_DestroyDoodads;
-		config::Field<config::Toggle<Hotkey>> f_DestroyPlants;
-		config::Field<float> f_Range;
 
-		static AutoDestroy& GetInstance();
+		static FreezeEnemies& GetInstance();
 
+		void OnGameUpdate();
+		
 		const FeatureGUIInfo& GetGUIInfo() const override;
 		void DrawMain() override;
 
@@ -24,7 +21,7 @@ namespace cheat::feature
 		void DrawStatus() override;
 	
 	private:
-		AutoDestroy();
+		FreezeEnemies();
 	};
 }
 
