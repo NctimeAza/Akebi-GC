@@ -213,7 +213,6 @@ DO_APP_FUNC(0x067C60C0, void, Transform_set_rotation, (Transform* __this, Quater
 DO_APP_FUNC(0x068469A0, float, Mathf_Lerp, (float a, float b, float t, MethodInfo* method));  //
 DO_APP_FUNC(0x0685A4F0, float, Input_GetAxis, (String* axisName, MethodInfo* method));  //
 DO_APP_FUNC(0x067C09F0, void, Object_1_Destroy_1, (Object_1* obj, MethodInfo* method)); //
-//DO_APP_FUNC(0x067CE330, void, Text_set_text, (Text* __this, String* value, MethodInfo* method)); //
 
 
 // Utility
